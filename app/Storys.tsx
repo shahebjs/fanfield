@@ -11,15 +11,15 @@ import Image from "next/image";
 import { FaPlus } from "react-icons/fa6";
 import authOptions from "./api/auth/authOptions";
 
-const Feeds = async () => {
+const Storys = async () => {
   const session = await getServerSession(authOptions);
   return (
-    <div className="py-6 overflow-auto">
+    <div>
       <div className="w-full relative">
         <Carousel>
           <CarouselContent>
-            <CarouselItem className="basis-1/3">
-              <div className="h-[220px] w-full rounded-3xl overflow-hidden shadow-md border flex flex-col items-center">
+            <CarouselItem className="basis-1/4">
+              <div className="h-[240px] w-full rounded-2xl overflow-hidden shadow-md border flex flex-col items-center">
                 <Image
                   src={session?.user?.image!}
                   alt={session?.user?.name!}
@@ -34,8 +34,8 @@ const Feeds = async () => {
               </div>
             </CarouselItem>
             {Array.from({ length: 5 }).map((_, i) => (
-              <CarouselItem key={i} className="basis-1/3">
-                <div className="h-[220px] w-full rounded-3xl overflow-hidden shadow-md border relative">
+              <CarouselItem key={i} className="basis-1/4">
+                <div className="h-[240px] w-full rounded-2xl overflow-hidden shadow-md border relative">
                   <Image
                     src="/me.jpg"
                     alt="user"
@@ -43,12 +43,12 @@ const Feeds = async () => {
                     height={250}
                     className="object-cover h-full"
                   />
-                  <div className="absolute top-2 left-2 rounded-full border-2 border-white">
+                  <div className="absolute top-3 left-3 rounded-full border-2 border-white">
                     <Avatar
                       radius="full"
                       src="/me.png"
                       fallback="user"
-                      size="2"
+                      size="3"
                     />
                   </div>
                 </div>
@@ -63,4 +63,4 @@ const Feeds = async () => {
   );
 };
 
-export default Feeds;
+export default Storys;
