@@ -43,7 +43,7 @@ const Storys = async () => {
                     height={250}
                     className="object-cover h-full"
                   />
-                  <div className="absolute top-3 left-3 rounded-full border-2 border-white">
+                  <div className="absolute top-2 left-2 rounded-full border-2 border-white">
                     <Avatar
                       radius="full"
                       src="/me.png"
