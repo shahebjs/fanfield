@@ -1,6 +1,7 @@
 import { Grid } from "@radix-ui/themes";
 import Navbar from "./Navbar";
 import Sidebar from "./Sidebar";
+import Feeds from "./Feeds";
 const Home = () => {
   return (
     <>
@@ -10,7 +11,7 @@ const Home = () => {
         columns={{ initial: "1fr", sm: "1fr 1fr", md: "1fr 1fr 1fr" }}
       >
         <Sidebar />
-        <div className="py-6 overflow-auto">feed</div>
+        <Feeds />
         <div className="py-6 overflow-auto">info</div>
       </Grid>
     </>
