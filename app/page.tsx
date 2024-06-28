@@ -1,12 +1,10 @@
-import { Button } from "@/components/ui/button";
-import { Container } from "@radix-ui/themes";
-import React from "react";
+import Navbar from "./Navbar";
 
-const Home = () => {
+const Home = async () => {
   return (
-    <Container>
-      <Button>Click Me</Button>
-    </Container>
+    <>
+      <Navbar />
+    </>
   );
 };
 
