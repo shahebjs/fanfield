@@ -5,24 +5,15 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { topNav } from "@/data";
 import { cn } from "@/lib/utils";
 import { Avatar, Grid } from "@radix-ui/themes";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { AiOutlineYoutube } from "react-icons/ai";
 import { BiSearch } from "react-icons/bi";
-import { GrGroup, GrHomeRounded } from "react-icons/gr";
 import { HiOutlineBell } from "react-icons/hi";
-import { HiOutlineUsers } from "react-icons/hi2";
 import { TbMessageCircle2 } from "react-icons/tb";
-
-const topNav = [
-  { id: 1, icon: <GrHomeRounded />, label: "Home", link: "/" },
-  { id: 2, icon: <HiOutlineUsers />, label: "Friends", link: "/friends" },
-  { id: 3, icon: <AiOutlineYoutube />, label: "Videos", link: "/videios" },
-  { id: 4, icon: <GrGroup />, label: "Groups", link: "/groups" },
-];
 
 const Navbar = () => {
   const { data } = useSession();
