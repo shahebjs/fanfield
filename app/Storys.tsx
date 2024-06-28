@@ -25,9 +25,9 @@ const Storys = async () => {
                   alt={session?.user?.name!}
                   width={200}
                   height={250}
-                  className="object-cover h-[180px]"
+                  className="object-cover h-[180px] -mt-6 md:mt-0"
                 />
-                <div className="cursor-pointer w-12 h-12 rounded-full bg-primary text-white text-xl flex items-center justify-center border-[5px] border-white -mt-4">
+                <div className="cursor-pointer w-9 h-10 md:w-12 md:h-12 rounded-full bg-primary text-white text-lg md:text-xl flex items-center justify-center border-2 md:border-[5px] border-white -mt-4">
                   <FaPlus />
                 </div>
                 <p className="text-sm mb-1">Create Story</p>
