@@ -9,7 +9,7 @@ const Home = () => {
     <>
       <Navbar />
       <Grid
-        className="max-w-screen-2xl mx-auto px-6 h-[calc(100vh-70px)]"
+        className="max-w-screen-2xl mx-auto px-6 h-full md:h-[calc(100vh-70px)]"
         columns={{ initial: "1fr", sm: "1fr 1fr", md: "2fr 3fr 2fr" }}
         gap="5"
       >
