@@ -6,22 +6,28 @@ import Sidebar from "./Sidebar";
 import Storys from "./Storys";
 const Home = () => {
   return (
-    <>
-      <Navbar />
+    <Grid rows="70px 1fr" className="h-screen">
+      <div className="w-full">
+        <Navbar />
+      </div>
       <Grid
-        className="max-w-screen-2xl mx-auto px-6 h-full md:h-[calc(100vh-70px)]"
+        className="max-w-screen-2xl mx-auto px-4 h-full md:h-[calc(100vh-70px)] overflow-auto"
         columns={{ initial: "1fr", sm: "1fr 1fr", md: "2fr 3fr 2fr" }}
         gap="5"
       >
-        <Sidebar />
+        <div className="hidden sm:block">
+          <Sidebar />
+        </div>
         <div className="py-6 overflow-auto space-y-7">
           <Storys />
           <AddPost />
           <Posts />
         </div>
-        <div className="py-6 overflow-auto">info</div>
+        <div className="hidden sm:block">
+          <div className="py-6 overflow-auto">info</div>
+        </div>
       </Grid>
-    </>
+    </Grid>
   );
 };
 
