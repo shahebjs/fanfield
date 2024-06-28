@@ -1,6 +1,7 @@
 "use client";
 
 import { joiResolver } from "@hookform/resolvers/joi";
+import axios from "axios";
 import Joi from "joi";
 import { useForm } from "react-hook-form";
 
@@ -15,6 +16,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Grid } from "@radix-ui/themes";
+import { signIn } from "next-auth/react";
 
 interface FormData {
   firstName: string;
@@ -41,7 +43,13 @@ const RegisterForm = () => {
 
   // 2. Define a submit handler.
   function onSubmit(values: FormData) {
-    console.log(values);
+    axios.post("/api/register", values).then(() =>
+      signIn("credentials", {
+        email: values.email,
+        password: values.password,
+        callbackUrl: "/",
+      }).catch((err) => console.log(err))
+    );
   }
 
   return (
