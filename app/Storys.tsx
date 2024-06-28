@@ -18,7 +18,7 @@ const Storys = async () => {
       <div className="w-full relative">
         <Carousel>
           <CarouselContent>
-            <CarouselItem className="basis-1/4">
+            <CarouselItem className="basis-1/3 md:basis-1/4">
               <div className="h-[240px] w-full rounded-2xl overflow-hidden shadow-md border flex flex-col items-center">
                 <Image
                   src={session?.user?.image!}
@@ -34,7 +34,7 @@ const Storys = async () => {
               </div>
             </CarouselItem>
             {Array.from({ length: 5 }).map((_, i) => (
-              <CarouselItem key={i} className="basis-1/4">
+              <CarouselItem key={i} className="basis-1/3 md:basis-1/4">
                 <div className="h-[240px] w-full rounded-2xl overflow-hidden shadow-md border relative">
                   <Image
                     src="/me.jpg"
