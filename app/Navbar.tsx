@@ -14,6 +14,8 @@ import { usePathname } from "next/navigation";
 import { BiSearch } from "react-icons/bi";
 import { HiOutlineBell } from "react-icons/hi";
 import { TbMessageCircle2 } from "react-icons/tb";
+import ToggleNav from "./ToggleNav";
+import NavSearch from "./NavSearch";
 
 const Navbar = () => {
   const { data } = useSession();
@@ -21,15 +23,21 @@ const Navbar = () => {
   return (
     <div className="max-w-screen-2xl mx-auto px-6 h-[70px] flex items-center shadow-md">
       <Grid
-        columns={{ initial: "1fr", sm: "1fr 1fr 1fr" }}
+        columns={{ initial: "1fr 1fr", sm: "1fr 1fr 1fr" }}
         width="100%"
         gap="5"
       >
-        <div className="hidden items-center gap-5 justify-start md:flex">
-          <div className="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center text-xl font-semibold">
+        <div className="flex items-center gap-5 justify-start">
+          <div className="cursor-pointer w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center text-xl font-semibold">
             FF
           </div>
-          <div className="flex items-center justify-between border rounded-3xl px-2 gap-2">
+          <div className="block md:hidden">
+            <NavSearch />
+          </div>
+          <div className="block md:hidden">
+            <ToggleNav />
+          </div>
+          <div className="hidden md:flex items-center justify-between border rounded-3xl px-2 gap-2">
             <BiSearch className="text-xl text-gray-400" />
             <input
               type="text"
@@ -61,12 +69,16 @@ const Navbar = () => {
           </TooltipProvider>
         </div>
         <div className="flex items-center justify-end gap-6">
-          <Link className="text-2xl" href="/">
-            <TbMessageCircle2 />
-          </Link>
-          <Link className="text-2xl" href="/">
-            <HiOutlineBell />
-          </Link>
+          <div className="bg-gray-200 w-11 h-11 rounded-full flex items-center justify-center">
+            <Link className="text-2xl" href="/">
+              <TbMessageCircle2 />
+            </Link>
+          </div>
+          <div className="bg-gray-200 w-11 h-11 rounded-full flex items-center justify-center">
+            <Link className="text-2xl" href="/">
+              <HiOutlineBell />
+            </Link>
+          </div>
           <Avatar
             radius="full"
             src={data?.user?.image!}

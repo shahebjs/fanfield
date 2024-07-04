@@ -13,6 +13,7 @@ export const POST = async (request: NextRequest) => {
   if (checkUser)
     return NextResponse.json("User Already Exist", { status: 409 });
 
+  // Hashed password
   const salt = await bcrypt.genSalt(10);
   const hashPassword = await bcrypt.hash(password, salt);
 
