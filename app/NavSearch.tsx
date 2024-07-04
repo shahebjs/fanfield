@@ -10,8 +10,8 @@ const NavSearch = () => {
   return (
     <Sheet>
       <SheetTrigger>
-        <div className="bg-gray-200 w-11 cursor-pointer h-11 rounded-full flex items-center justify-center">
-          <BiSearch className="text-2xl" />
+        <div className="w-9 h-9 md:w-11 md:h-11 bg-gray-200 cursor-pointer rounded-full flex items-center justify-center">
+          <BiSearch className="text-xl md:text-2xl" />
         </div>
       </SheetTrigger>
       <SheetContent side="left">

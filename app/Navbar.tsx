@@ -27,8 +27,8 @@ const Navbar = () => {
         width="100%"
         gap="5"
       >
-        <div className="flex items-center gap-5 justify-start">
-          <div className="cursor-pointer w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center text-xl font-semibold">
+        <div className="flex items-center gap-2 md:gap-5 justify-start">
+          <div className="cursor-pointer w-9 h-9 md:w-11 md:h-11 rounded-full bg-primary text-white flex items-center justify-center md:text-xl font-semibold">
             FF
           </div>
           <div className="block md:hidden">
@@ -68,18 +68,19 @@ const Navbar = () => {
             ))}
           </TooltipProvider>
         </div>
-        <div className="flex items-center justify-end gap-6">
-          <div className="bg-gray-200 w-11 h-11 rounded-full flex items-center justify-center">
+        <div className="flex items-center justify-end gap-2 md:gap-6">
+          <div className="bg-gray-200 w-9 h-9 md:w-11 md:h-11 rounded-full flex items-center justify-center">
             <Link className="text-2xl" href="/">
               <TbMessageCircle2 />
             </Link>
           </div>
-          <div className="bg-gray-200 w-11 h-11 rounded-full flex items-center justify-center">
+          <div className="bg-gray-200 w-9 h-9 md:w-11 md:h-11 rounded-full flex items-center justify-center">
             <Link className="text-2xl" href="/">
               <HiOutlineBell />
             </Link>
           </div>
           <Avatar
+            size={{ initial: "2", sm: "3" }}
             radius="full"
             src={data?.user?.image!}
             fallback={data?.user?.name?.slice(0, 1)!}
