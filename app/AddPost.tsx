@@ -1,8 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { Avatar } from "@radix-ui/themes";
-import { FaVideo } from "react-icons/fa6";
 import { IoMdPhotos } from "react-icons/io";
 import { LuClapperboard } from "react-icons/lu";
+import GoToLive from "./GoToLive";
 
 const AddPost = () => {
   return (
@@ -17,10 +17,7 @@ const AddPost = () => {
       </div>
       <hr />
       <div className="flex items-center justify-between md:justify-around">
-        <Button variant="ghost">
-          <FaVideo className="text-primary mr-2 text-xl md:text-2xl" /> Live
-          Video
-        </Button>
+        <GoToLive />
         <Button variant="ghost">
           <IoMdPhotos className="text-green-500 mr-2 text-xl md:text-2xl" />
           Photo/Video

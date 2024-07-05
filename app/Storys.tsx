@@ -8,7 +8,7 @@ import {
 import { Avatar } from "@radix-ui/themes";
 import { getServerSession } from "next-auth";
 import Image from "next/image";
-import { FaPlus } from "react-icons/fa6";
+import AddStory from "./AddStory";
 import authOptions from "./api/auth/authOptions";
 
 const Storys = async () => {
@@ -27,9 +27,7 @@ const Storys = async () => {
                   height={250}
                   className="object-cover h-[180px] -mt-6 md:mt-0"
                 />
-                <div className="cursor-pointer w-9 h-10 md:w-12 md:h-12 rounded-full bg-primary text-white text-lg md:text-xl flex items-center justify-center border-2 md:border-[5px] border-white -mt-4">
-                  <FaPlus />
-                </div>
+                <AddStory />
                 <p className="text-[10px] md:text-sm mb-1">Create Story</p>
               </div>
             </CarouselItem>
