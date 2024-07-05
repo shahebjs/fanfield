@@ -11,7 +11,7 @@ const ToggleNav = () => {
   return (
     <Sheet>
       <SheetTrigger>
-        <div className="hover:bg-gray-200 transition-colors cursor-pointer w-11 h-11 rounded-full flex items-center justify-center">
+        <div className="hover:bg-gray-200 transition-colors cursor-pointer w-10 h-10 rounded-full flex items-center justify-center">
           <IoMenuSharp className="text-2xl" />
         </div>
       </SheetTrigger>

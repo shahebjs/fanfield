@@ -18,8 +18,8 @@ const Storys = async () => {
       <div className="w-full relative">
         <Carousel>
           <CarouselContent>
-            <CarouselItem className="basis-1/3 md:basis-1/4">
-              <div className="h-[180px] sm:h-[200px] md:h-[240px] w-full rounded-2xl overflow-hidden shadow-md border flex flex-col items-center">
+            <CarouselItem className="basis-1/4 md:basis-1/5">
+              <div className="h-[150px] md:h-[180px] lg:h-[240px] w-full rounded-2xl overflow-hidden shadow-md border flex flex-col items-center">
                 <Image
                   src={session?.user?.image!}
                   alt={session?.user?.name!}
@@ -30,12 +30,12 @@ const Storys = async () => {
                 <div className="cursor-pointer w-9 h-10 md:w-12 md:h-12 rounded-full bg-primary text-white text-lg md:text-xl flex items-center justify-center border-2 md:border-[5px] border-white -mt-4">
                   <FaPlus />
                 </div>
-                <p className="text-sm mb-1">Create Story</p>
+                <p className="text-[10px] md:text-sm mb-1">Create Story</p>
               </div>
             </CarouselItem>
             {Array.from({ length: 5 }).map((_, i) => (
-              <CarouselItem key={i} className="basis-1/3 md:basis-1/4">
-                <div className="h-[180px] sm:h-[200px] md:h-[240px] w-full rounded-2xl overflow-hidden shadow-md border relative">
+              <CarouselItem key={i} className="basis-1/4 md:basis-1/5">
+                <div className="h-[150px] md:h-[180px] lg:h-[240px] w-full rounded-2xl overflow-hidden shadow-md border relative">
                   <Image
                     src="/me.jpg"
                     alt="user"
@@ -48,7 +48,7 @@ const Storys = async () => {
                       radius="full"
                       src="/me.png"
                       fallback="user"
-                      size="3"
+                      size={{ initial: "2", sm: "3" }}
                     />
                   </div>
                 </div>

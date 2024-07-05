@@ -12,10 +12,10 @@ const Home = () => {
       </div>
       <Grid
         className="max-w-screen-2xl mx-auto px-4 h-full md:h-[calc(100vh-70px)] overflow-auto"
-        columns={{ initial: "1fr", sm: "1fr 1fr", md: "2fr 3fr 2fr" }}
+        columns={{ initial: "1fr", sm: "1fr 2fr", md: "4fr 11fr 4fr" }}
         gap="5"
       >
-        <div className="hidden sm:block">
+        <div className="hidden md:block">
           <Sidebar />
         </div>
         <div className="py-6 overflow-auto space-y-7">
@@ -23,7 +23,7 @@ const Home = () => {
           <AddPost />
           <Posts />
         </div>
-        <div className="hidden sm:block">
+        <div className="hidden lg:block">
           <div className="py-6 overflow-auto">info</div>
         </div>
       </Grid>

@@ -7,15 +7,16 @@ import {
 } from "@/components/ui/tooltip";
 import { topNav } from "@/data";
 import { cn } from "@/lib/utils";
-import { Avatar, Grid } from "@radix-ui/themes";
+import { Grid } from "@radix-ui/themes";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { BiSearch } from "react-icons/bi";
 import { HiOutlineBell } from "react-icons/hi";
 import { TbMessageCircle2 } from "react-icons/tb";
-import ToggleNav from "./ToggleNav";
+import NavProfile from "./NavProfile";
 import NavSearch from "./NavSearch";
+import ToggleNav from "./ToggleNav";
 
 const Navbar = () => {
   const { data } = useSession();
@@ -79,11 +80,10 @@ const Navbar = () => {
               <HiOutlineBell />
             </Link>
           </div>
-          <Avatar
-            size={{ initial: "2", sm: "3" }}
-            radius="full"
-            src={data?.user?.image!}
-            fallback={data?.user?.name?.slice(0, 1)!}
+          <NavProfile
+            img={data?.user?.image!}
+            name={data?.user?.name!}
+            email={data?.user?.email!}
           />
         </div>
       </Grid>
