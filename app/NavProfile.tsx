@@ -36,7 +36,7 @@ const NavProfile = ({ img, name, email }: Props) => {
           />
           <div className="text-center">
             <h3 className="md:text-xl font-semibold">{name}</h3>
-            <p className="text-sm"> {email} </p>
+            <p className="text-xs text-gray-500"> {email} </p>
           </div>
         </div>
 
@@ -44,7 +44,7 @@ const NavProfile = ({ img, name, email }: Props) => {
           <div className="flex items-center gap-2 justify-between">
             <span className="text-sm md:text-lg">Theme</span> <ModeToggle />
           </div>
-          <Button variant="outline">Logout</Button>
+          <Button variant="secondary">Logout</Button>
         </div>
       </PopoverContent>
     </Popover>

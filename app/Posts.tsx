@@ -16,8 +16,12 @@ const Posts = () => {
             <div className="flex items-start gap-2">
               <Avatar radius="full" src="/me.png" fallback="U" />
               <div>
-                <h3 className="font-semibold text-gray-600">Herdoy Almamun</h3>
-                <p className="text-sm text-gray-400">12 hours ago</p>
+                <h3 className="font-semibold text-gray-600 dark:text-gray-300">
+                  Herdoy Almamun
+                </h3>
+                <p className="text-sm text-gray-400 dark:text-gray-500">
+                  12 hours ago
+                </p>
               </div>
             </div>
             <div className="flex items-center gap-5 text-2xl">
