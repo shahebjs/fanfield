@@ -1,8 +1,7 @@
-import { Button } from "@/components/ui/button";
 import { Avatar } from "@radix-ui/themes";
-import { IoMdPhotos } from "react-icons/io";
-import { LuClapperboard } from "react-icons/lu";
+import AddReel from "./AddReel";
 import GoToLive from "./GoToLive";
+import PhotoVideo from "./PhotoVideo";
 
 const AddPost = () => {
   return (
@@ -11,21 +10,15 @@ const AddPost = () => {
         <Avatar radius="full" src="me.png" fallback="User" />
         <input
           type="text"
-          className="p-2 flex-1 focus:outline-none bg-gray-100 rounded-3xl hover:bg-gray-200"
+          className="p-2 flex-1 focus:outline-none bg-gray-100 dark:bg-black rounded-3xl hover:bg-gray-200"
           placeholder="What't on your mind, Herdoy?"
         />
       </div>
       <hr />
       <div className="flex items-center justify-between md:justify-around">
         <GoToLive />
-        <Button variant="ghost">
-          <IoMdPhotos className="text-green-500 mr-2 text-xl md:text-2xl" />
-          Photo/Video
-        </Button>
-        <Button variant="ghost">
-          <LuClapperboard className="text-primary mr-2 text-xl md:text-2xl" />
-          Reel
-        </Button>
+        <PhotoVideo />
+        <AddReel />
       </div>
     </div>
   );

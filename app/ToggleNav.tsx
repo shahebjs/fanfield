@@ -11,7 +11,7 @@ const ToggleNav = () => {
   return (
     <Sheet>
       <SheetTrigger>
-        <div className="hover:bg-gray-200 transition-colors cursor-pointer w-10 h-10 rounded-full flex items-center justify-center">
+        <div className="hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors cursor-pointer w-10 h-10 rounded-full flex items-center justify-center">
           <IoMenuSharp className="text-2xl" />
         </div>
       </SheetTrigger>
@@ -19,7 +19,7 @@ const ToggleNav = () => {
       <SheetContent side="left">
         <div className="py-6 overflow-auto space-y-10">
           <Link
-            className="flex items-center gap-3 font-semibold text-gray-600"
+            className="flex items-center gap-3 font-semibold text-gray-600 dark:text-gray-300"
             href="/"
           >
             <Image
@@ -34,7 +34,7 @@ const ToggleNav = () => {
           {sideNav.map((item) => (
             <Link
               key={item.id}
-              className="flex items-center gap-3 text-gray-600"
+              className="flex items-center gap-3 text-gray-600 dark:text-gray-300"
               href="/"
             >
               <span className="text-2xl">{item.icon}</span>

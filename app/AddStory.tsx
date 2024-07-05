@@ -7,7 +7,7 @@ const AddStory = () => {
   return (
     <Dialog>
       <DialogTrigger>
-        <div className="cursor-pointer w-9 h-10 md:w-12 md:h-12 rounded-full bg-primary text-white text-lg md:text-xl flex items-center justify-center border-2 md:border-[5px] border-white -mt-4">
+        <div className="cursor-pointer w-9 h-10 md:w-12 md:h-12 rounded-full bg-primary text-white text-lg md:text-xl flex items-center justify-center border-2 md:border-[5px] border-white dark:border-black -mt-4">
           <FaPlus />
         </div>
       </DialogTrigger>
@@ -21,7 +21,7 @@ const AddStory = () => {
         <h2 className="text-xl font-semibold text-center">
           Create a photo story
         </h2>
-        <Button>Updoad</Button>
+        <Button disabled>Updoad</Button>
       </DialogContent>
     </Dialog>
   );

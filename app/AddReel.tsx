@@ -1,14 +1,14 @@
 import { buttonVariants } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
-import { FaVideo } from "react-icons/fa6";
+import { LuClapperboard } from "react-icons/lu";
 
-const GoToLive = () => {
+const AddReel = () => {
   return (
     <Dialog>
       <DialogTrigger>
         <span className={buttonVariants({ variant: "ghost" })}>
-          <FaVideo className="text-primary mr-2 text-xl md:text-2xl" /> Live
-          Video
+          <LuClapperboard className="text-primary mr-2 text-xl md:text-2xl" />
+          Reel
         </span>
       </DialogTrigger>
       <DialogContent className="flex items-center justify-center flex-col gap-2 py-8">
@@ -21,4 +21,4 @@ const GoToLive = () => {
   );
 };
 
-export default GoToLive;
+export default AddReel;

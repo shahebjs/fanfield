@@ -9,7 +9,7 @@ const Sidebar = async () => {
   return (
     <div className="py-6 overflow-auto space-y-10">
       <Link
-        className="flex items-center gap-3 font-semibold text-gray-600"
+        className="flex items-center gap-3 font-semibold text-gray-600 dark:text-gray-400"
         href="/"
       >
         <Avatar
@@ -22,7 +22,7 @@ const Sidebar = async () => {
       {sideNav.map((item) => (
         <Link
           key={item.id}
-          className="flex items-center gap-3 text-gray-600"
+          className="flex items-center gap-3 text-gray-600 dark:text-gray-400"
           href="/"
         >
           <span className="text-2xl">{item.icon}</span>

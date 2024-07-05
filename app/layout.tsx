@@ -1,9 +1,10 @@
+import { Theme } from "@radix-ui/themes";
+import "@radix-ui/themes/styles.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "@radix-ui/themes/styles.css";
-import "./globals.css";
-import { Theme } from "@radix-ui/themes";
 import AuthProvider from "./AuthProvider";
+import "./globals.css";
+import { ThemeProvider } from "./ThemeProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,11 +19,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
-        <Theme>
-          <AuthProvider>{children}</AuthProvider>
-        </Theme>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Theme>
+            <AuthProvider>{children}</AuthProvider>
+          </Theme>
+        </ThemeProvider>
       </body>
     </html>
   );

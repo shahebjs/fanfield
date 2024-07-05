@@ -1,10 +1,10 @@
+import { ModeToggle } from "@/components/ModeToggle";
 import { Button } from "@/components/ui/button";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { Switch } from "@/components/ui/switch";
 import { Avatar } from "@radix-ui/themes";
 import Image from "next/image";
 
@@ -42,7 +42,7 @@ const NavProfile = ({ img, name, email }: Props) => {
 
         <div className="flex flex-col gap-3 w-full">
           <div className="flex items-center gap-2 justify-between">
-            <span className="text-sm md:text-lg">Dark Mode</span> <Switch />
+            <span className="text-sm md:text-lg">Theme</span> <ModeToggle />
           </div>
           <Button variant="outline">Logout</Button>
         </div>
