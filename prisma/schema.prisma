@@ -29,6 +29,7 @@ model User {
   updatedAt DateTime @updatedAt
   Story     Story[]
   Post      Post[]
+  Like      Like[]
 }
 
 model Account {
@@ -104,6 +105,17 @@ model Post {
   user      User     @relation(fields: [userId], references: [id])
   text      String?
   img       String?
+  Like      Like[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Like {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  postId    String   @db.ObjectId
+  post      Post     @relation(fields: [postId], references: [id])
+  userId    String   @db.ObjectId
+  user      User     @relation(fields: [userId], references: [id])
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }

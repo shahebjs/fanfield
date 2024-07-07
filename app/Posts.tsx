@@ -6,7 +6,8 @@ import { BsThreeDots } from "react-icons/bs";
 import { FaRegComment } from "react-icons/fa6";
 import { IoClose } from "react-icons/io5";
 import { RiShareForwardLine } from "react-icons/ri";
-import { SlLike } from "react-icons/sl";
+import AddLike from "./AddLike";
+import Likes from "./Likes";
 
 const Posts = async () => {
   const posts = await prisma.post.findMany({
@@ -42,7 +43,7 @@ const Posts = async () => {
               <p className="md:text-xl">{post.text}</p>
             </div>
           )}
-          <div className="rounded-2xl overflow-hidden">
+          <div className="rounded-md overflow-hidden">
             <Image
               src={post.img!}
               width={400}
@@ -51,11 +52,14 @@ const Posts = async () => {
               className="w-full"
             />
           </div>
+          <div className="flex items-center justify-between px-9">
+            <Likes postId={post.id} />
+            <div></div>
+            <div></div>
+          </div>
           <hr />
-          <div className="flex items-center justify-around text-gray-500">
-            <Button variant="ghost">
-              <SlLike className="mr-2 text-2xl" /> Like
-            </Button>
+          <div className="flex items-center justify-between text-gray-500 px-4">
+            <AddLike postId={post.id} />
             <Button variant="ghost">
               <FaRegComment className="mr-2 text-2xl" />
               Comment

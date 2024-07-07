@@ -5,12 +5,12 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import prisma from "@/prisma/client";
 import { Avatar } from "@radix-ui/themes";
 import { getServerSession } from "next-auth";
 import Image from "next/image";
 import AddStory from "./AddStory";
 import authOptions from "./api/auth/authOptions";
-import prisma from "@/prisma/client";
 
 const Storys = async () => {
   const session = await getServerSession(authOptions);
@@ -26,7 +26,7 @@ const Storys = async () => {
         <Carousel>
           <CarouselContent>
             <CarouselItem className="basis-1/4 md:basis-1/5">
-              <div className="h-[150px] md:h-[180px] lg:h-[240px] w-full rounded-2xl overflow-hidden shadow-md border flex flex-col items-center">
+              <div className="h-[150px] md:h-[180px] lg:h-[240px] w-full rounded-md overflow-hidden shadow-md border flex flex-col items-center">
                 <Image
                   src={session?.user?.image!}
                   alt={session?.user?.name!}
@@ -40,7 +40,7 @@ const Storys = async () => {
             </CarouselItem>
             {storys.map((story) => (
               <CarouselItem key={story.id} className="basis-1/4 md:basis-1/5">
-                <div className="h-[150px] md:h-[180px] lg:h-[240px] w-full rounded-2xl overflow-hidden shadow-md border relative">
+                <div className="h-[150px] md:h-[180px] lg:h-[240px] w-full rounded-md overflow-hidden shadow-md border relative">
                   <Image
                     src={story.img}
                     alt="user"
