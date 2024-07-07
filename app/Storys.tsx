@@ -14,11 +14,6 @@ import prisma from "@/prisma/client";
 
 const Storys = async () => {
   const session = await getServerSession(authOptions);
-  const myStorys = await prisma.story.findMany({
-    where: {
-      userId: session?.user.id,
-    },
-  });
   const storys = await prisma.story.findMany({ include: { user: true } });
   return (
     <div>
@@ -38,27 +33,6 @@ const Storys = async () => {
                 <p className="text-[10px] md:text-sm mb-1">Create Story</p>
               </div>
             </CarouselItem>
-            {myStorys.map((story) => (
-              <CarouselItem key={story.id} className="basis-1/4 md:basis-1/5">
-                <div className="h-[150px] md:h-[180px] lg:h-[240px] w-full rounded-2xl overflow-hidden shadow-md border relative">
-                  <Image
-                    src={story.img}
-                    alt="user"
-                    width={200}
-                    height={250}
-                    className="object-cover h-full"
-                  />
-                  <div className="absolute top-2 left-2 rounded-full border-2 border-white">
-                    <Avatar
-                      radius="full"
-                      src={session?.user.image}
-                      fallback="user"
-                      size={{ initial: "2", sm: "3" }}
-                    />
-                  </div>
-                </div>
-              </CarouselItem>
-            ))}
             {storys.map((story) => (
               <CarouselItem key={story.id} className="basis-1/4 md:basis-1/5">
                 <div className="h-[150px] md:h-[180px] lg:h-[240px] w-full rounded-2xl overflow-hidden shadow-md border relative">
@@ -74,7 +48,7 @@ const Storys = async () => {
                       radius="full"
                       src={story.user.image!}
                       fallback="user"
-                      size={{ initial: "2", sm: "3" }}
+                      size={{ initial: "2", sm: "2", md: "3" }}
                     />
                   </div>
                 </div>
