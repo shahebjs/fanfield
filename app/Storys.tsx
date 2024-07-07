@@ -14,7 +14,12 @@ import prisma from "@/prisma/client";
 
 const Storys = async () => {
   const session = await getServerSession(authOptions);
-  const storys = await prisma.story.findMany({ include: { user: true } });
+  const storys = await prisma.story.findMany({
+    include: { user: true },
+    orderBy: {
+      createdAt: "desc",
+    },
+  });
   return (
     <div>
       <div className="w-full relative">
