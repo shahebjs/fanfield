@@ -43,6 +43,23 @@ const authOptions: AuthOptions = {
       },
     }),
   ],
+  callbacks: {
+    async session({ token, session }) {
+      if (session.user && token.sub) {
+        session.user.id = token.sub;
+        session.user.emailVerified = token.emailVerified;
+        session.user.role = token.role;
+      }
+      return session;
+    },
+    async jwt({ token }) {
+      const user = await prisma.user.findUnique({ where: { id: token.sub } });
+      if (user) {
+        token.emailVerified = user.emailVerified;
+      }
+      return token;
+    },
+  },
   session: {
     strategy: "jwt",
   },
