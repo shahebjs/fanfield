@@ -53,7 +53,7 @@ const Storys = async () => {
                       radius="full"
                       src={story.user.image!}
                       fallback="user"
-                      size={{ initial: "2", sm: "2", md: "3" }}
+                      size={{ initial: "1", sm: "2", md: "3" }}
                     />
                   </div>
                 </div>
