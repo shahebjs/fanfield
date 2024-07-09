@@ -10,7 +10,7 @@ const Sidebar = async () => {
     <div className="py-6 overflow-auto space-y-10">
       <Link
         className="flex items-center gap-3 font-semibold text-gray-600 dark:text-gray-400"
-        href="/"
+        href="/profile"
       >
         <Avatar
           radius="full"

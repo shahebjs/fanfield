@@ -1,3 +1,4 @@
+"use client";
 import { ModeToggle } from "@/components/ModeToggle";
 import { Button } from "@/components/ui/button";
 import {
@@ -6,6 +7,7 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { Avatar } from "@radix-ui/themes";
+import { signOut } from "next-auth/react";
 import Image from "next/image";
 
 interface Props {
@@ -44,7 +46,12 @@ const NavProfile = ({ img, name, email }: Props) => {
           <div className="flex items-center gap-2 justify-between">
             <span className="text-sm md:text-lg">Theme</span> <ModeToggle />
           </div>
-          <Button variant="secondary">Logout</Button>
+          <Button
+            onClick={() => signOut({ callbackUrl: "/login" })}
+            variant="secondary"
+          >
+            Logout
+          </Button>
         </div>
       </PopoverContent>
     </Popover>

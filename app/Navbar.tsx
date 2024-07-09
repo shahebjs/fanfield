@@ -29,9 +29,12 @@ const Navbar = () => {
         gap="5"
       >
         <div className="flex items-center gap-2 md:gap-5 justify-start">
-          <div className="cursor-pointer w-9 h-9 md:w-11 md:h-11 rounded-full bg-primary text-white flex items-center justify-center md:text-xl font-semibold">
+          <Link
+            href="/"
+            className="cursor-pointer w-9 h-9 md:w-11 md:h-11 rounded-full bg-primary text-white flex items-center justify-center md:text-xl font-semibold"
+          >
             FF
-          </div>
+          </Link>
           <div className="block md:hidden">
             <NavSearch />
           </div>
