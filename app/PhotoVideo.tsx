@@ -1,5 +1,5 @@
 "use client";
-import { Button, buttonVariants } from "@/components/ui/button";
+import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
@@ -15,10 +15,9 @@ import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import Joi from "joi";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
-import { useState } from "react";
+import { ReactNode, useState } from "react";
 import { useForm } from "react-hook-form";
 import { BsGlobe } from "react-icons/bs";
-import { IoMdPhotos } from "react-icons/io";
 import { IoClose } from "react-icons/io5";
 import { MdAddToPhotos } from "react-icons/md";
 
@@ -32,7 +31,11 @@ const schema = Joi.object({
   text: Joi.string(),
 });
 
-const PhotoVideo = () => {
+interface Props {
+  dialogTrigger: ReactNode;
+}
+
+const PhotoVideo = ({ dialogTrigger }: Props) => {
   const [loading, setLoading] = useState(false);
   const session = useSession();
 
@@ -66,12 +69,7 @@ const PhotoVideo = () => {
 
   return (
     <Dialog>
-      <DialogTrigger>
-        <span className={buttonVariants({ variant: "ghost" })}>
-          <IoMdPhotos className="text-green-500 mr-2 text-xl md:text-2xl" />
-          Photo/Video
-        </span>
-      </DialogTrigger>
+      <DialogTrigger className="w-full">{dialogTrigger}</DialogTrigger>
       <DialogContent>
         <DialogHeader>
           <DialogTitle className="text-center md:text-xl font-semibold">
