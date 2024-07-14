@@ -9,8 +9,8 @@ import prisma from "@/prisma/client";
 import { Avatar } from "@radix-ui/themes";
 import { getServerSession } from "next-auth";
 import Image from "next/image";
-import authOptions from "../api/auth/authOptions";
 import AddStory from "./AddStory";
+import authOptions from "./api/auth/authOptions";
 
 const Storys = async () => {
   const session = await getServerSession(authOptions);
