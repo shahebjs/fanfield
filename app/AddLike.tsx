@@ -10,7 +10,6 @@ interface Props {
 
 const AddLike = ({ postId }: Props) => {
   const { data } = useSession();
-
   return (
     <Button
       variant="ghost"
