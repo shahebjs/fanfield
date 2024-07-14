@@ -1,21 +1,13 @@
 import { Button } from "@/components/ui/button";
-import prisma from "@/prisma/client";
 import { Avatar, Container } from "@radix-ui/themes";
 import { getServerSession } from "next-auth";
 import Image from "next/image";
 import { FaCamera } from "react-icons/fa";
 import authOptions from "../api/auth/authOptions";
-import Navbar from "../__components/__navbar/Navbar";
-import UploadProfilePhoto from "./UploadProfilePhoto";
+import Navbar from "../Navbar";
 
 const Profile = async () => {
   const session = await getServerSession(authOptions);
-  const user = await prisma.user.findUnique({
-    where: { id: session?.user.id },
-  });
-
-  if (!user) return null;
-
   return (
     <>
       <div className="w-full fixed top-0 left-0 right-0 z-50 bg-white dark:bg-black">
@@ -43,15 +35,17 @@ const Profile = async () => {
               <Avatar
                 size={{ initial: "6", sm: "9" }}
                 radius="full"
-                src={user.image as string}
-                fallback={user.name as string}
+                src={session?.user.image}
+                fallback={session?.user.name}
                 className="border-[5px]"
               />
-              <UploadProfilePhoto />
+              <div className="absolute right-0 lg:right-1 cursor-pointer lg:text-lg bottom-3 w-5 h-5 md:w-9 md:h-9 flex items-center justify-center bg-gray-300 dark:bg-gray-500 dark:text-gray-900 rounded-full">
+                <FaCamera />
+              </div>
             </div>
             <div className="flex h-full flex-col justify-center mt-3 text-gray-700 dark:text-gray-300">
               <h1 className="text-lg md:text-2xl lg:text-4xl font-semibold">
-                {user?.name}
+                {session?.user.name}
               </h1>
               <p className="text-xs md:text-lg font-semibold text-gray-400">
                 25k followers | 18 following
