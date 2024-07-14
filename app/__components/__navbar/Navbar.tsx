@@ -1,26 +1,14 @@
-"use client";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
-import { topNav } from "@/data";
-import { cn } from "@/lib/utils";
 import { Grid } from "@radix-ui/themes";
-import { useSession } from "next-auth/react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { BiSearch } from "react-icons/bi";
 import { HiOutlineBell } from "react-icons/hi";
 import { TbMessageCircle2 } from "react-icons/tb";
+import NavSearch from "../NavSearch";
 import NavProfile from "./NavProfile";
-import NavSearch from "./NavSearch";
 import ToggleNav from "./ToggleNav";
+import TopNav from "./TopNav";
 
 const Navbar = () => {
-  const { data } = useSession();
-  const path = usePathname();
   return (
     <div className="max-w-screen-2xl mx-auto px-6 h-[70px] flex items-center shadow-md">
       <Grid
@@ -50,28 +38,7 @@ const Navbar = () => {
             />
           </div>
         </div>
-        <div className="md:flex items-center justify-between hidden">
-          <TooltipProvider>
-            {topNav.map((item) => (
-              <Tooltip key={item.id}>
-                <TooltipTrigger>
-                  <Link
-                    className={cn(
-                      "text-2xl hover:text-primary transition-colors",
-                      path === item.link ? "text-primary" : ""
-                    )}
-                    href={item.link}
-                  >
-                    {item.icon}
-                  </Link>
-                </TooltipTrigger>
-                <TooltipContent>
-                  <p> {item.label} </p>
-                </TooltipContent>
-              </Tooltip>
-            ))}
-          </TooltipProvider>
-        </div>
+        <TopNav />
         <div className="flex items-center justify-end gap-2 md:gap-6">
           <div className="bg-gray-200 dark:bg-gray-800 w-9 h-9 md:w-11 md:h-11 rounded-full flex items-center justify-center">
             <Link className="text-2xl" href="/">
@@ -83,11 +50,7 @@ const Navbar = () => {
               <HiOutlineBell />
             </Link>
           </div>
-          <NavProfile
-            img={data?.user?.image!}
-            name={data?.user?.name!}
-            email={data?.user?.email!}
-          />
+          <NavProfile />
         </div>
       </Grid>
     </div>

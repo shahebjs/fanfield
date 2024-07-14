@@ -1,9 +1,10 @@
 import { Grid } from "@radix-ui/themes";
-import AddPost from "./AddPost";
-import Navbar from "./Navbar";
-import Posts from "./Posts";
-import Sidebar from "./Sidebar";
-import Storys from "./Storys";
+import Navbar from "./__components/__navbar/Navbar";
+import { Sidebar } from "lucide-react";
+import AddPost from "./__components/AddPost";
+import Posts from "./__components/Posts";
+import Storys from "./__components/Storys";
+
 const Home = () => {
   return (
     <Grid rows="70px 1fr" className="h-screen">
